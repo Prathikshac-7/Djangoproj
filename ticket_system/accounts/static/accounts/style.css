@@ -1,0 +1,82 @@
+/* Ensure full-height layout */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #e9f1f7;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Form container box */
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+h2 {
+  font-weight: 600;
+  color: #333333;
+}
+
+/* Form fields */
+.form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Error text */
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* Button */
+.btn {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.btn-dark {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: #0b5ed7;
+}
+
+/* Link below button */
+.text-center a {
+  font-size: 0.95rem;
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+form button.btn.btn-success {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+}
+
+form button.btn.btn-success:hover {
+  background-color: #222 !important;
+  border-color: #222 !important;
+}

@@ -1,0 +1,95 @@
+{% extends 'accounts/base_dash.html' %}
+{% load static %}
+
+{% block content %}
+<!-- New Ticket Modal -->
+<div class="modal fade" id="newTicketModal" tabindex="-1" aria-labelledby="newTicketModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="post" action="{% url 'submit_ticket' %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title" id="newTicketModalLabel">Submit New Ticket</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit Ticket</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Dashboard Content -->
+<h4 class="fw-bold mb-4">My Tickets</h4>
+
+<!-- Ticket Stats Row -->
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card ticket-card shadow-sm">
+      <div class="card-body">
+        <p class="card-title fw-bold text-muted m-0">Open</p>
+        <h3 class="text-primary">{{ open_count }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card ticket-card shadow-sm">
+      <div class="card-body">
+        <p class="card-title fw-bold text-muted m-0">In Progress</p>
+        <h3 class="text-success">1</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card ticket-card shadow-sm">
+      <div class="card-body">
+        <p class="card-title fw-bold text-muted m-0">Closed</p>
+        <h3 class="text-danger">3</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ticket Filter Buttons -->
+<div class="btn-group mb-4" role="group" aria-label="Ticket Filters">
+  <button type="button" class="btn btn-outline-dark active">All Tickets</button>
+  <button type="button" class="btn btn-outline-dark">Open</button>
+  <button type="button" class="btn btn-outline-dark">Closed</button>
+</div>
+
+<!-- New Ticket Button -->
+<button class="btn btn-primary btn-new-ticket" data-bs-toggle="modal" data-bs-target="#newTicketModal">
+  + New Ticket
+</button>
+
+<!-- Ticket List Placeholder -->
+<div class="mt-4">
+  {% if my_tickets %}
+    <div class="list-group">
+      {% for ticket in my_tickets %}
+        <div class="list-group-item list-group-item-action mb-2 shadow-sm">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-primary">#{{ ticket.id }} - {{ ticket.subject }}</h5>
+            <small class="text-muted">{{ ticket.created_at|date:"M d, Y H:i" }}</small>
+          </div>
+          <p class="mb-1">{{ ticket.description|truncatechars:100 }}</p>
+          <small>Status: <span class="badge bg-secondary">{{ ticket.status }}</span></small>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-muted">No tickets to display right now.</p>
+  {% endif %}
+</div>
+{% endblock %}

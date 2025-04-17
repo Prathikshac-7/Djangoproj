@@ -1,0 +1,69 @@
+{% extends 'accounts/base_dash.html' %}
+{% block title %}Open Tickets{% endblock %}
+
+{% block content %}
+<h4 class="fw-bold">Open Tickets</h4>
+
+{% if tickets %}
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Created At</th>
+          <th>Last Updated</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ticket in tickets %}
+        <tr>
+          <td>{{ ticket.id }}</td>
+          <td id="subject{{ ticket.id }}">{{ ticket.subject }}</td>
+          <td id="status{{ ticket.id }}">{{ ticket.status }}</td>
+          <td>{{ ticket.created_at|date:"Y-m-d H:i" }}</td>
+          <td>{{ ticket.updated_at|date:"Y-m-d H:i" }}</td>
+          <td>
+            <!-- Buttons for Edit, Delete, View -->
+            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ticketModal{{ ticket.id }}">View</button>
+            
+          </td>
+        </tr>
+
+        <!-- Modal for ticket details -->
+        <div class="modal fade" id="ticketModal{{ ticket.id }}" tabindex="-1" aria-labelledby="ticketModalLabel{{ ticket.id }}" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ticketModalLabel{{ ticket.id }}">Ticket #{{ ticket.id }} - {{ ticket.subject }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p><strong>Subject:</strong> <span id="subject{{ ticket.id }}">{{ ticket.subject }}</span></p>
+<p><strong>Description:</strong><br><span id="description{{ ticket.id }}">{{ ticket.description|linebreaks }}</span></p>
+
+                <p><strong>Status:</strong> {{ ticket.status }}</p>
+                <p><strong>Created At:</strong> {{ ticket.created_at }}</p>
+                <p><strong>Last Updated:</strong> {{ ticket.updated_at }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" onclick="deleteTicket({{ ticket.id }})">Delete</button>
+                <button type="button" class="btn btn-outline-warning" onclick="enableEdit({{ ticket.id }})">Edit</button>
+                <button type="button" class="btn btn-primary d-none" id="saveBtn{{ ticket.id }}" onclick="saveEdit({{ ticket.id }})">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p class="text-muted">No open tickets available.</p>
+{% endif %}
+{% endblock %}
