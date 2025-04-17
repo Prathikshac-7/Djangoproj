@@ -1,0 +1,206 @@
+/* Global Styles */
+body {
+    background-color: #f7f9fc;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+  
+  /* Container for Forms */
+  .container {
+    max-width: 450px;
+    margin: 50px auto;
+  }
+  
+  /* Form Container (used in login, signup, and create agent pages) */
+  .form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form Fields */
+  .form-container .mb-3 {
+    margin-bottom: 1rem;
+  }
+  
+  .form-container label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    display: block;
+  }
+  
+  .form-container .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-container .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  /* Go Back Button */
+  .btn-back {
+    background-color: #44494d;
+    color: #ffffff;
+    margin-left: 1rem;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-back:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    background-color: #007bff;
+    width: 220px;
+    min-height: 100vh;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding-top: 1rem;
+  }
+  
+  .sidebar .nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .sidebar .nav-link {
+    padding: 15px 20px;
+    display: block;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background-color 0.2s ease, border-left 0.2s ease;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #ffffff;
+  }
+  
+  /* Content Area */
+  .content {
+    background-color: #f7f9fc;
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  /* Navbar (if additional styling needed) */
+  .navbar {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dashboard Cards (e.g., ticket-card) */
+  .ticket-card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .ticket-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .ticket-card .card-body {
+    padding: 1rem;
+  }
+  
+  .ticket-card .card-title {
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+  
+  /* List Group (for tickets list) */
+  .list-group {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .list-group-item {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #dee2e6;
+    border-top: 0;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .list-group-item:first-child {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f1f3f5;
+  }
+  
+  /* Utility classes (if needed) */
+  .text-muted {
+    color: #ffffff;
+  }
+  
+  .fw-bold {
+    font-weight: 700;
+  }
+  
+  /* Responsive Utility (if needed) */
+  @media (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+    .content {
+      padding: 1rem;
+    }
+  }
+  

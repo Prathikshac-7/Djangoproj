@@ -1,0 +1,105 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base Body Styling */
+  body {
+    background-color: #F0F4F8;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+  
+  /* Centering the Page Content */
+  .container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 20px;
+  }
+  
+  /* Form Container */
+  .form-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Form Heading */
+  .form-container h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+    color: #444;
+  }
+  
+  /* Ensure each form field block (paragraph) is spaced */
+  .form-container p {
+    margin-bottom: 20px;
+  }
+  
+  /* Labels for Form Fields */
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  /* Input Fields and Selects */
+  .form-container .form-control {
+    display: block;  /* Ensures the control is on its own line */
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-container .form-control:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* Buttons Common Styles */
+  .btn {
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Primary Button (Save Button) */
+  .btn-primary {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Back Button Styled as an Anchor */
+  .btn-back {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #6c757d;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-back:hover {
+    background-color: #5a6268;
+  }
+  

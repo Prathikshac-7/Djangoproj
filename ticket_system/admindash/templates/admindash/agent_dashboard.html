@@ -1,0 +1,13 @@
+{% extends 'accounts/agent_base.html' %}
+
+{% block title %}Agent Dashboard{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-body text-center">
+      <h3>Welcome, {{ request.user.first_name }}!</h3>
+      <p>Agent Dashboard</p>
+      <a href="{% url 'agent_tickets' %}" class="btn btn-primary mt-3">Tickets to Resolve</a>
+    </div>
+  </div>
+{% endblock %}
