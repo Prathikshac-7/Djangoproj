@@ -1,0 +1,17 @@
+{% extends 'accounts/agent_base.html' %}
+
+{% block title %}Tickets to Resolve{% endblock %}
+
+{% block content %}
+  <h4 class="mb-4">Tickets to Resolve</h4>
+  {% if tickets %}
+    <ul class="list-group">
+      {% for ticket in tickets %}
+        <li class="list-group-item">{{ ticket.title }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No tickets assigned.</p>
+  {% endif %}
+  <a href="{% url 'agent_dashboard' %}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+{% endblock %}

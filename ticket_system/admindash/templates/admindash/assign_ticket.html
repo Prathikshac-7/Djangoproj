@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Assign Tickets{% endblock %}
+
+{% block content %}
+  <h4 class="mb-4">Assign Tickets for {{ agent.first_name }}</h4>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      {% for ticket in dummy_tickets %}
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="tickets" id="ticket{{ ticket.id }}" value="{{ ticket.id }}">
+          <label class="form-check-label" for="ticket{{ ticket.id }}">
+            {{ ticket.title }}
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-success">Finish</button>
+      <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back</a>
+    </div>
+  </form>
+{% endblock %}
